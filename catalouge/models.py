@@ -25,3 +25,6 @@ class Car(models.Model):
     
     class Meta:
         db_table = "Car"
+    def __str__(self):
+        return self.title
+    
