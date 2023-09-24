@@ -11,5 +11,9 @@ class Company(models.Model):
     
     def __str__(self):
         return self.name
-    
-    
+
+class Car(models.Model):
+    title = models.CharField(max_length=128)
+    about = models.TextField()
+    company = models.ForeignKey(Company, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
