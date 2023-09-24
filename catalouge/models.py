@@ -22,3 +22,6 @@ class Car(models.Model):
     about = models.TextField()
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    
+    class Meta:
+        db_table = "Car"
