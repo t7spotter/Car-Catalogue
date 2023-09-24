@@ -17,3 +17,8 @@ class RetrieveCompany(generics.RetrieveUpdateDestroyAPIView):
 class ListCreateCategory(generics.ListCreateAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
+    
+
+class RetrieveCategory(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
