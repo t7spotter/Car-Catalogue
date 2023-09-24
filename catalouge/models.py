@@ -8,6 +8,7 @@ class Category(models.Model):
     
 class Company(models.Model):
     name = models.CharField(max_length=128)
+    made_in = models.CharField(max_length=128)
     
     def __str__(self):
         return self.name
