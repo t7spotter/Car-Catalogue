@@ -16,3 +16,9 @@ class CompanySerializer(serializers.ModelSerializer):
         model = Company
         fields = "__all__"
         
+
+class CarSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = Car
+        fiels = "__all__"
