@@ -21,4 +21,4 @@ class CarSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Car
-        fiels = "__all__"
+        fields = "__all__"
