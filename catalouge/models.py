@@ -10,6 +10,8 @@ class Company(models.Model):
     name = models.CharField(max_length=128)
     made_in = models.CharField(max_length=128)
     
+    class Meta:
+        db_table = "Company"
     def __str__(self):
         return self.name
 
