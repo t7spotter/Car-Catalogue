@@ -7,3 +7,8 @@ from .serializers import CarSerializer, CompanySerializer, CategorySerializer
 class ListCreateCompany(generics.ListCreateAPIView):
     queryset = Company.objects.all()
     serializer_class = CompanySerializer
+    
+    
+class RetrieveCompany(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Company.objects.all()
+    serializer_class = CompanySerializer
