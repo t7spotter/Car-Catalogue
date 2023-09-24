@@ -12,6 +12,8 @@ urlpatterns = [
     path('list-create-category/<int:pk>', views.RetrieveCategory.as_view()),
     
     path('list-create-car', views.ListCreateCar.as_view()),
+    path('list-create-car/<int:pk>', views.RetrieveCar.as_view()),
+    
     
 ]
 
