@@ -22,3 +22,8 @@ class ListCreateCategory(generics.ListCreateAPIView):
 class RetrieveCategory(generics.RetrieveUpdateDestroyAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
+    
+
+class ListCreateCar(generics.ListCreateAPIView):
+    queryset = Car.objects.all()
+    serializer_class = CarSerializer
