@@ -20,6 +20,8 @@ class RetrieveCompany(generics.RetrieveUpdateDestroyAPIView):
 class ListCreateCategory(generics.ListCreateAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
+    filter_backends = [SearchFilter, OrderingFilter]
+    search_fields = ["title",]
     
 
 class RetrieveCategory(generics.RetrieveUpdateDestroyAPIView):
