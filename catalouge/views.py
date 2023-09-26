@@ -8,7 +8,7 @@ from .serializers import CarSerializer, CompanySerializer, CategorySerializer
 class ListCreateCompany(generics.ListCreateAPIView):
     queryset = Company.objects.all()
     serializer_class = CompanySerializer
-    filter_backends = [SearchFilter, OrderingFilter]
+    filter_backends = [SearchFilter]
     search_fields = ["name",]
     
     
@@ -20,7 +20,7 @@ class RetrieveCompany(generics.RetrieveUpdateDestroyAPIView):
 class ListCreateCategory(generics.ListCreateAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
-    filter_backends = [SearchFilter, OrderingFilter]
+    filter_backends = [SearchFilter]
     search_fields = ["title",]
     
 
@@ -32,7 +32,7 @@ class RetrieveCategory(generics.RetrieveUpdateDestroyAPIView):
 class ListCreateCar(generics.ListCreateAPIView):
     queryset = Car.objects.all()
     serializer_class = CarSerializer
-    filter_backends = [SearchFilter, OrderingFilter]
+    filter_backends = [SearchFilter]
     search_fields = ["title",]
     
 
