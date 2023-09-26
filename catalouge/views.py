@@ -32,6 +32,8 @@ class RetrieveCategory(generics.RetrieveUpdateDestroyAPIView):
 class ListCreateCar(generics.ListCreateAPIView):
     queryset = Car.objects.all()
     serializer_class = CarSerializer
+    filter_backends = [SearchFilter, OrderingFilter]
+    search_fields = ["title",]
     
 
 class RetrieveCar(generics.RetrieveUpdateDestroyAPIView):
