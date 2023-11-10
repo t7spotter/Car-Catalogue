@@ -1,0 +1,36 @@
+version: '3.3'
+
+services:
+  db:
+    container_name: "car_postgres"
+    restart: always
+    image: postgres:14.4
+    environment:
+      POSTGRES_USER: "car_postgres"
+      POSTGRES_PASSWORD: "car_postgres"
+      POSTGRES_DB: "car_postgres"
+    volumes:
+      - car_postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  web:
+    container_name: car
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    restart: always
+    environment:
+      BACKEND_POSTGRES_HOST: "db"
+      BACKEND_POSTGRES_PORT: "5432"
+    command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+
+volumes:
+  car_postgres_data:
+    external: true
