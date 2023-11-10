@@ -11,6 +11,14 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+from car.environments import (
+
+    BACKEND_POSTGRES_HOST,
+    BACKEND_POSTGRES_NAME,
+    BACKEND_POSTGRES_PASSWORD,
+    BACKEND_POSTGRES_PORT,
+    BACKEND_POSTGRES_USERNAME,
+)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -78,9 +86,13 @@ WSGI_APPLICATION = 'car.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": BACKEND_POSTGRES_NAME,
+        "USER": BACKEND_POSTGRES_USERNAME,
+        "PASSWORD": BACKEND_POSTGRES_PASSWORD,
+        "HOST": BACKEND_POSTGRES_HOST,
+        "PORT": BACKEND_POSTGRES_PORT,
     }
 }
 
